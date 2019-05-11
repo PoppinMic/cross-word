@@ -42,7 +42,8 @@ Later, I found that mapping your prvoided sample Grid source and correct answer(
 
 ### TODOS
 
-- More Unit Test
+- Unit Test for `<Grid />`
+- Snapshot to check `<Grid />` render
 
 ---
 
