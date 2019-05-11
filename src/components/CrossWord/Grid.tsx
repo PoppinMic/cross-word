@@ -2,7 +2,13 @@ import React, { useState } from 'react';
 import _ from 'lodash';
 
 import { ERROR_MSG } from '../../constants/messages';
-import { BlockWrapper, Block, Overlay } from './styles';
+import {
+  BlockWrapper,
+  Block,
+  Overlay,
+  GridWrapper,
+  ButtonsWrapper
+} from './styles';
 import { color_correct_green, color_wrong_red } from '../../styles/cssVars';
 
 interface IGridSource {
@@ -91,14 +97,16 @@ const Grid = ({ gridSource, correctAnswers }: IGridSource) => {
 
   return (
     <React.Fragment>
-      <div>
+      <GridWrapper>
         {gridSource.map((row, index) => (
           <div key={row + index}>{renderBlocks(row, index)}</div>
         ))}
-      </div>
-      <button onClick={validateAnswers}>Validate</button>
-      <button onClick={showCorrectAnswers}>Show Correct Answers</button>
-      <button onClick={resetGrid}>Try Again</button>
+      </GridWrapper>
+      <ButtonsWrapper>
+        <button onClick={validateAnswers}>Validate</button>
+        <button onClick={showCorrectAnswers}>Show Correct Answers</button>
+        <button onClick={resetGrid}>Try Again</button>
+      </ButtonsWrapper>
     </React.Fragment>
   );
 };
