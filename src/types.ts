@@ -1,3 +1,7 @@
 export interface Dict {
-  [key: string]: any;
+  [key: string]: string;
+}
+
+export interface ComparedDict {
+  [key: string]: boolean;
 }

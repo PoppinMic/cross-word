@@ -11,7 +11,7 @@ import {
 } from './styles';
 import { color_correct_green, color_wrong_red } from '../../styles/cssVars';
 import { compare2Dicts } from '../../helper/compare2Dicts';
-import { Dict } from '../../types';
+import { Dict, ComparedDict } from '../../types';
 
 interface IGridSource {
   gridSource: Array<string>;
@@ -22,7 +22,7 @@ const Grid = ({ gridSource }: IGridSource) => {
   // otherwise show error msg
   const gridLineLength = gridSource[0].length;
   const [answer, setAnswer] = useState<Dict>({});
-  const [correctAnswerDict, setCorrectAnswerDict] = useState<Dict>({});
+  const [correctAnswerDict, setCorrectAnswerDict] = useState<ComparedDict>({});
 
   const renderBlocks = (rowString: string, rowIndex: number) => {
     const rowResult: Array<JSX.Element | null> = [];
