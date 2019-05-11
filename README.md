@@ -20,6 +20,8 @@ For each available input, I put the name following the format "x`[rowNum]`x`[col
 
 Base on this rendering mechanisam, it will be very easy when it's time to validate the user answer with provided answer. We just need to compare two JS dictionary Object, compare their keys and value. I initally didn't plan to use `Lodash` but later find it just makes life eaiser by using the collection's `_.foreach`.
 
+**Notice: You need to fill in all inputs, otherwise you cannot validate and there will be an error message in console(I intentionally made this).**
+
 ### Choices
 
 I chosed to use `styled-components` - a JSS library - to do most of the css styles. Base on this, I can use props on styles in a declaritive way. Which later I decided to make all blocks an `input` Element. The difference is that `+` ones will be disabled and have slightly different styles.
@@ -39,7 +41,6 @@ Later, I found that mapping your prvoided sample Grid source and correct answer(
 ### TODOS
 
 - Unit Test
-- Abstract Compare function out
 
 ---
 
