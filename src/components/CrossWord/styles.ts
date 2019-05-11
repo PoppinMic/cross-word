@@ -56,6 +56,7 @@ export const BlockWrapper = styled.span`
 
 export const Block = styled.input`
   position: relative;
+  /* -1px is used here to avoid double border */
   margin-left: -1px;
   margin-top: -1px;
   height: 1.5em;
