@@ -11,7 +11,7 @@ to view the implementation.
 ### Render Grid
 
 Basically string can be seen as array of characters. So I simplified the data source for grid to be one array of strings(saves time from typing).
-By using 2 nested loop(although the first one is actually `Function.prototype.map`), we can get (x,y) two-dimentional location of each input block,
+By using 2 nested loops, we can get (x,y) two-dimentional location of each input block,
 I also check to see if each line of strings have same length before start rendering.
 
 For each available input, I put the name following the format "x`[rowNum]`x`[columnNum]`", I also use this naming as keys for correct answer(I was told the correct answer is provided instead of let the program to check.)
