@@ -11,6 +11,7 @@ import {
 } from './styles';
 import { color_correct_green, color_wrong_red } from '../../styles/cssVars';
 import { compare2Dicts } from '../../helper/compare2Dicts';
+import { Dict } from '../../types';
 
 interface IGridSource {
   gridSource: Array<string>;
@@ -20,8 +21,8 @@ const Grid = ({ gridSource }: IGridSource) => {
   // strings from gridSource should be same length
   // otherwise show error msg
   const gridLineLength = gridSource[0].length;
-  const [answer, setAnswer] = useState({});
-  const [correctAnswerDict, setCorrectAnswerDict] = useState({});
+  const [answer, setAnswer] = useState<Dict>({});
+  const [correctAnswerDict, setCorrectAnswerDict] = useState<Dict>({});
 
   const renderBlocks = (rowString: string, rowIndex: number) => {
     const rowResult: Array<JSX.Element | null> = [];
@@ -66,7 +67,7 @@ const Grid = ({ gridSource }: IGridSource) => {
     }
   };
 
-  const renderValidation = dictKey => {
+  const renderValidation = (dictKey: string) => {
     if (Object.keys(correctAnswerDict).length > 0) {
       return correctAnswerDict[dictKey] ? (
         <Overlay role="img" aria-label="correct" color={color_correct_green}>
