@@ -52,7 +52,7 @@ const Grid = ({ gridSource }: IGridSource) => {
     return rowResult;
   };
 
-  const handleInputChange = e => {
+  const handleInputChange = (e: React.FormEvent<HTMLInputElement>): void => {
     let newAnswer = { ...answer };
     newAnswer[e.currentTarget.name] = e.currentTarget.value;
     setAnswer(newAnswer);
