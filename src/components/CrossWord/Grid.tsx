@@ -78,6 +78,11 @@ const Grid = ({ gridSource, correctAnswers }: IGridSource) => {
     setAnswer(correctAnswers);
   };
 
+  const resetGrid = () => {
+    setAnswer({});
+    setCorrectAnswerDict({});
+  };
+
   return (
     <React.Fragment>
       <div>
@@ -87,6 +92,7 @@ const Grid = ({ gridSource, correctAnswers }: IGridSource) => {
       </div>
       <button onClick={validateAnswers}>Validate</button>
       <button onClick={showCorrectAnswers}>Show Correct Answers</button>
+      <button onClick={resetGrid}>Try Again</button>
     </React.Fragment>
   );
 };
