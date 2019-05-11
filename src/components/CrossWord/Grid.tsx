@@ -68,9 +68,13 @@ const Grid = ({ gridSource, correctAnswers }: IGridSource) => {
   const renderValidation = dictKey => {
     if (_.size(correctAnswerDict) > 0) {
       return correctAnswerDict[dictKey] ? (
-        <Overlay color={color_correct_green}>✔</Overlay>
+        <Overlay role="img" aria-label="correct" color={color_correct_green}>
+          ✔
+        </Overlay>
       ) : (
-        <Overlay color={color_wrong_red}>❌</Overlay>
+        <Overlay role="img" aria-label="wrong" color={color_wrong_red}>
+          ✖
+        </Overlay>
       );
     }
   };

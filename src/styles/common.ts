@@ -27,7 +27,7 @@ export const Block = styled.input`
   `}
 `;
 
-export const Overlay = styled.div`
+export const Overlay = styled.span`
   position: absolute;
   height: 100%;
   width: 100%;
