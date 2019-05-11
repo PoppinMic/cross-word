@@ -1,24 +1,23 @@
 import React, { useState } from 'react';
-import { Block } from '../../styles/common';
+import _ from 'lodash';
+
+import { ANSWER_TYPE } from '../../constants/common';
+import { BlockWrapper, Block, Overlay } from '../../styles/common';
+import { color_correct_green, color_wrong_red } from '../../styles/cssVars';
 
 interface IGridSource {
   gridSource: Array<string>;
+  correctAnswers: object;
 }
 
-const Grid = ({ gridSource }: IGridSource) => {
+const Grid = ({ gridSource, correctAnswers }: IGridSource) => {
   // strings from gridSource should be same length
   // otherwise show error msg
   const gridLineLength = gridSource[0].length;
-
   const [answer, setAnswer] = useState({});
+  const [correctAnswerDict, setCorrectAnswerDict] = useState({});
 
-  const handleInputChange = (rowIndex: number, columnIndex: number) => e => {
-    let newAnswer = { ...answer };
-    newAnswer[`x${rowIndex}x${columnIndex}`] = e.currentTarget.value;
-    setAnswer(newAnswer);
-  };
-
-  const renderEmptyBlock = (rowString: string, rowIndex: number) => {
+  const renderBlocks = (rowString: string, rowIndex: number) => {
     const rowResult: Array<JSX.Element | null> = [];
     if (rowString.length !== gridLineLength) {
       return;
@@ -28,14 +27,16 @@ const Grid = ({ gridSource }: IGridSource) => {
         rowResult.push(<Block key={rowIndex + columnIndex} disabled />);
       } else if (rowString[columnIndex] === '-') {
         rowResult.push(
-          <Block
-            key={rowIndex + columnIndex}
-            type="text"
-            name={`x${rowIndex}x${columnIndex}`}
-            maxLength={1}
-            onChange={handleInputChange(rowIndex, columnIndex)}
-            value={answer[`x${rowIndex}x${columnIndex}`] || ''}
-          />
+          <BlockWrapper key={rowIndex + columnIndex}>
+            <Block
+              type="text"
+              name={`x${rowIndex}x${columnIndex}`}
+              maxLength={1}
+              onChange={handleInputChange}
+              value={answer[`x${rowIndex}x${columnIndex}`] || ''}
+            />
+            {renderValidation(`x${rowIndex}x${columnIndex}`)}
+          </BlockWrapper>
         );
       } else {
         throw Error('wrong format');
@@ -43,18 +44,49 @@ const Grid = ({ gridSource }: IGridSource) => {
     }
     return rowResult;
   };
-  const validateAnswer = (e: React.SyntheticEvent) => {
-    e.preventDefault();
+
+  const handleInputChange = e => {
+    let newAnswer = { ...answer };
+    newAnswer[e.currentTarget.name] = e.currentTarget.value;
+    setAnswer(newAnswer);
+  };
+
+  const validateAnswers = () => {
+    if (Object.keys(answer).length === Object.keys(correctAnswers).length) {
+      const answerCorrectness = {};
+      _.forEach(correctAnswers, (value, key) => {
+        value === answer[key]
+          ? (answerCorrectness[key] = true)
+          : (answerCorrectness[key] = false);
+      });
+      setCorrectAnswerDict(answerCorrectness);
+    } else {
+      console.warn('please complete all inputs');
+    }
+  };
+
+  const renderValidation = dictKey => {
+    if (_.size(correctAnswerDict) > 0) {
+      return correctAnswerDict[dictKey] ? (
+        <Overlay color={color_correct_green}>✔</Overlay>
+      ) : (
+        <Overlay color={color_wrong_red}>❌</Overlay>
+      );
+    }
+  };
+  const showCorrectAnswers = () => {
+    setAnswer(correctAnswers);
   };
 
   return (
     <React.Fragment>
-      <form>
+      <div>
         {gridSource.map((row, index) => (
-          <div key={row + index}>{renderEmptyBlock(row, index)}</div>
+          <div key={row + index}>{renderBlocks(row, index)}</div>
         ))}
-        <input type="submit" value="validate" />
-      </form>
+      </div>
+      <button onClick={validateAnswers}>Validate</button>
+      <button onClick={showCorrectAnswers}>Show Correct Answers</button>
     </React.Fragment>
   );
 };
