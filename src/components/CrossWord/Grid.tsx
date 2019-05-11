@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import _ from 'lodash';
 
+import { mockCorrectAnswer } from '../../mockData';
 import { ERROR_MSG } from '../../constants/messages';
 import {
   BlockWrapper,
@@ -10,13 +10,13 @@ import {
   ButtonsWrapper
 } from './styles';
 import { color_correct_green, color_wrong_red } from '../../styles/cssVars';
+import { compare2Dicts } from '../../helper/compare2Dicts';
 
 interface IGridSource {
   gridSource: Array<string>;
-  correctAnswers: object;
 }
 
-const Grid = ({ gridSource, correctAnswers }: IGridSource) => {
+const Grid = ({ gridSource }: IGridSource) => {
   // strings from gridSource should be same length
   // otherwise show error msg
   const gridLineLength = gridSource[0].length;
@@ -59,21 +59,15 @@ const Grid = ({ gridSource, correctAnswers }: IGridSource) => {
   };
 
   const validateAnswers = () => {
-    if (Object.keys(answer).length === Object.keys(correctAnswers).length) {
-      const answerCorrectness = {};
-      _.forEach(correctAnswers, (value, key) => {
-        value === answer[key]
-          ? (answerCorrectness[key] = true)
-          : (answerCorrectness[key] = false);
-      });
-      setCorrectAnswerDict(answerCorrectness);
+    if (Object.keys(answer).length === Object.keys(mockCorrectAnswer).length) {
+      setCorrectAnswerDict(compare2Dicts(answer, mockCorrectAnswer));
     } else {
       console.error(ERROR_MSG.INCOMPLETE);
     }
   };
 
   const renderValidation = dictKey => {
-    if (_.size(correctAnswerDict) > 0) {
+    if (Object.keys(correctAnswerDict).length > 0) {
       return correctAnswerDict[dictKey] ? (
         <Overlay role="img" aria-label="correct" color={color_correct_green}>
           ✔
@@ -87,7 +81,7 @@ const Grid = ({ gridSource, correctAnswers }: IGridSource) => {
   };
 
   const showCorrectAnswers = () => {
-    setAnswer(correctAnswers);
+    setAnswer(mockCorrectAnswer);
   };
 
   const resetGrid = () => {

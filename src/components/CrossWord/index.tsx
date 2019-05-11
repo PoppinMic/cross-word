@@ -1,16 +1,12 @@
 import React from 'react';
 
-import {
-  mockGridSource,
-  mockListOfWords,
-  mockCorrectAnswer
-} from '../../mockData';
+import { mockGridSource, mockListOfWords } from '../../mockData';
 import Grid from './Grid';
 import WordList from './WordList';
 
 const CrossWord = () => (
   <React.Fragment>
-    <Grid gridSource={mockGridSource} correctAnswers={mockCorrectAnswer} />
+    <Grid gridSource={mockGridSource} />
     <WordList listOfWord={mockListOfWords} />
   </React.Fragment>
 );
