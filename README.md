@@ -30,7 +30,9 @@ I also choose to use React Hook since it's the future of react, much simpler and
 
 Another technical choice is that I have some error messages currently just logged in console, while it later can be in message toasts on top-level of our app using `context API` or `redux`.
 
-The last one I can think of now is that I make a comparision of two objects instead of arrays when validating. So at this state, I didn't see the necessary to put it in a Web Worker and process it asyncly.
+Next, I make a comparision of two objects instead of arrays when validating. So at this state, I didn't see the necessary to put it in a Web Worker and process it asyncly.
+
+On situation when user entered a word before then delete the word and leave the input empty, I decided to leave that object key's value as `""` instead of delete the key, so later we may distinguish if the user has tried or not.
 
 ### Challenges
 
@@ -40,7 +42,7 @@ Later, I found that mapping your prvoided sample Grid source and correct answer(
 
 ### TODOS
 
-- Unit Test
+- More Unit Test
 
 ---
 
