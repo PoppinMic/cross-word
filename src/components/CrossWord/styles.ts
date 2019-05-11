@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color_light_gray, color_white } from './cssVars';
+import { color_light_gray, color_white } from '../../styles/cssVars';
 
 export const BlockWrapper = styled.span`
   position: relative;

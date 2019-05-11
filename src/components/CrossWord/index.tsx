@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import {
   mockGridSource,
@@ -8,14 +8,11 @@ import {
 import Grid from './Grid';
 import WordList from './WordList';
 
-const CrossWord = () => {
-  const [errMsg, setErrMsg] = useState('');
-  return (
-    <React.Fragment>
-      <Grid gridSource={mockGridSource} correctAnswers={mockCorrectAnswer} />
-      <WordList listOfWord={mockListOfWords} />
-    </React.Fragment>
-  );
-};
+const CrossWord = () => (
+  <React.Fragment>
+    <Grid gridSource={mockGridSource} correctAnswers={mockCorrectAnswer} />
+    <WordList listOfWord={mockListOfWords} />
+  </React.Fragment>
+);
 
 export default CrossWord;

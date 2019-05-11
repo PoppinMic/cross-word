@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import _ from 'lodash';
 
-import { ANSWER_TYPE } from '../../constants/common';
-import { BlockWrapper, Block, Overlay } from '../../styles/common';
+import { ERROR_MSG } from '../../constants/messages';
+import { BlockWrapper, Block, Overlay } from './styles';
 import { color_correct_green, color_wrong_red } from '../../styles/cssVars';
 
 interface IGridSource {
@@ -20,6 +20,7 @@ const Grid = ({ gridSource, correctAnswers }: IGridSource) => {
   const renderBlocks = (rowString: string, rowIndex: number) => {
     const rowResult: Array<JSX.Element | null> = [];
     if (rowString.length !== gridLineLength) {
+      console.error(ERROR_MSG.WRONG_FORMAT);
       return;
     }
     for (let columnIndex = 0; columnIndex < gridLineLength; columnIndex++) {
@@ -39,7 +40,7 @@ const Grid = ({ gridSource, correctAnswers }: IGridSource) => {
           </BlockWrapper>
         );
       } else {
-        throw Error('wrong format');
+        console.error(ERROR_MSG.WRONG_FORMAT);
       }
     }
     return rowResult;
@@ -61,7 +62,7 @@ const Grid = ({ gridSource, correctAnswers }: IGridSource) => {
       });
       setCorrectAnswerDict(answerCorrectness);
     } else {
-      console.warn('please complete all inputs');
+      console.error(ERROR_MSG.INCOMPLETE);
     }
   };
 
@@ -78,6 +79,7 @@ const Grid = ({ gridSource, correctAnswers }: IGridSource) => {
       );
     }
   };
+
   const showCorrectAnswers = () => {
     setAnswer(correctAnswers);
   };
