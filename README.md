@@ -2,11 +2,7 @@
 
 In the project directory, run:
 
-### `npm install`
-
-then run:
-
-### `npm start`
+`npm install` then run `npm start`
 
 to view the implementation.
 
@@ -22,7 +18,7 @@ For each available input, I put the name following the format "x`[rowNum]`x`[col
 
 ### Validation
 
-Base on this rendering mechanisam, it will be very easy when it's time to validate the user answer with provided answer. We just need to compare two JS dictionary Object, compare their keys and value. I initally didn't plan to use Lodash but later find it just makes life eaiser by using the collection's `_.foreach`.
+Base on this rendering mechanisam, it will be very easy when it's time to validate the user answer with provided answer. We just need to compare two JS dictionary Object, compare their keys and value. I initally didn't plan to use `Lodash` but later find it just makes life eaiser by using the collection's `_.foreach`.
 
 ### Choices
 
@@ -43,6 +39,7 @@ Later, I found that mapping your prvoided sample Grid source and correct answer(
 ### TODOS
 
 - Unit Test
+- Abstract Compare function out
 
 ---
 
