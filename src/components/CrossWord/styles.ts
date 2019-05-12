@@ -42,7 +42,7 @@ export const ButtonsWrapper = styled.div`
 `;
 
 export const WordListWrapper = styled.ul`
-  flex: 0 0 30%;
+  max-width: 30%;
   padding: 0;
   li {
     list-style-position: inside;
