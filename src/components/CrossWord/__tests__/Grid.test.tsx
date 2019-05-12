@@ -3,7 +3,7 @@ import Enzyme, { shallow, ShallowWrapper } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import Grid from '../Grid';
-import { Block } from '../styles';
+import { Block, Overlay } from '../styles';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -27,5 +27,8 @@ describe(`<Grid /> rendering`, () => {
   });
   it('should have 15 disabled input elements', () => {
     expect(wrapper.find("[data-testid='disabledInput']")).toHaveLength(15);
+  });
+  it('should not have any Overlay', () => {
+    expect(wrapper.find(Overlay)).toHaveLength(0);
   });
 });
