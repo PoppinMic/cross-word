@@ -32,7 +32,14 @@ const Grid = ({ gridSource }: IGridSource) => {
     }
     for (let columnIndex = 0; columnIndex < gridLineLength; columnIndex++) {
       if (rowString[columnIndex] === '+') {
-        rowResult.push(<Block key={rowIndex + columnIndex} disabled />);
+        rowResult.push(
+          <Block
+            key={rowIndex + columnIndex}
+            data-testid="disabledInput"
+            type="text"
+            disabled
+          />
+        );
       } else if (rowString[columnIndex] === '-') {
         rowResult.push(
           <BlockWrapper key={rowIndex + columnIndex}>
@@ -40,6 +47,7 @@ const Grid = ({ gridSource }: IGridSource) => {
               type="text"
               name={`x${rowIndex}x${columnIndex}`}
               maxLength={1}
+              data-testid="availableInput"
               onChange={handleInputChange}
               value={answer[`x${rowIndex}x${columnIndex}`] || ''}
             />

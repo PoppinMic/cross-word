@@ -7,17 +7,22 @@ exports[`<Grid /> rendering renders correctly 1`] = `
       key="++-++0"
     >
       <styled.input
+        data-testid="disabledInput"
         disabled={true}
         key="0"
+        type="text"
       />
       <styled.input
+        data-testid="disabledInput"
         disabled={true}
         key="1"
+        type="text"
       />
       <styled.span
         key="2"
       >
         <styled.input
+          data-testid="availableInput"
           maxLength={1}
           name="x0x2"
           onChange={[Function]}
@@ -26,25 +31,32 @@ exports[`<Grid /> rendering renders correctly 1`] = `
         />
       </styled.span>
       <styled.input
+        data-testid="disabledInput"
         disabled={true}
         key="3"
+        type="text"
       />
       <styled.input
+        data-testid="disabledInput"
         disabled={true}
         key="4"
+        type="text"
       />
     </div>
     <div
       key="+-+++1"
     >
       <styled.input
+        data-testid="disabledInput"
         disabled={true}
         key="1"
+        type="text"
       />
       <styled.span
         key="2"
       >
         <styled.input
+          data-testid="availableInput"
           maxLength={1}
           name="x1x1"
           onChange={[Function]}
@@ -53,16 +65,22 @@ exports[`<Grid /> rendering renders correctly 1`] = `
         />
       </styled.span>
       <styled.input
+        data-testid="disabledInput"
         disabled={true}
         key="3"
+        type="text"
       />
       <styled.input
+        data-testid="disabledInput"
         disabled={true}
         key="4"
+        type="text"
       />
       <styled.input
+        data-testid="disabledInput"
         disabled={true}
         key="5"
+        type="text"
       />
     </div>
     <div
@@ -72,6 +90,7 @@ exports[`<Grid /> rendering renders correctly 1`] = `
         key="2"
       >
         <styled.input
+          data-testid="availableInput"
           maxLength={1}
           name="x2x0"
           onChange={[Function]}
@@ -83,6 +102,7 @@ exports[`<Grid /> rendering renders correctly 1`] = `
         key="3"
       >
         <styled.input
+          data-testid="availableInput"
           maxLength={1}
           name="x2x1"
           onChange={[Function]}
@@ -94,6 +114,7 @@ exports[`<Grid /> rendering renders correctly 1`] = `
         key="4"
       >
         <styled.input
+          data-testid="availableInput"
           maxLength={1}
           name="x2x2"
           onChange={[Function]}
@@ -102,12 +123,16 @@ exports[`<Grid /> rendering renders correctly 1`] = `
         />
       </styled.span>
       <styled.input
+        data-testid="disabledInput"
         disabled={true}
         key="5"
+        type="text"
       />
       <styled.input
+        data-testid="disabledInput"
         disabled={true}
         key="6"
+        type="text"
       />
     </div>
     <div
@@ -117,6 +142,7 @@ exports[`<Grid /> rendering renders correctly 1`] = `
         key="3"
       >
         <styled.input
+          data-testid="availableInput"
           maxLength={1}
           name="x3x0"
           onChange={[Function]}
@@ -125,21 +151,28 @@ exports[`<Grid /> rendering renders correctly 1`] = `
         />
       </styled.span>
       <styled.input
+        data-testid="disabledInput"
         disabled={true}
         key="4"
+        type="text"
       />
       <styled.input
+        data-testid="disabledInput"
         disabled={true}
         key="5"
+        type="text"
       />
       <styled.input
+        data-testid="disabledInput"
         disabled={true}
         key="6"
+        type="text"
       />
       <styled.span
         key="7"
       >
         <styled.input
+          data-testid="availableInput"
           maxLength={1}
           name="x3x4"
           onChange={[Function]}
@@ -155,6 +188,7 @@ exports[`<Grid /> rendering renders correctly 1`] = `
         key="4"
       >
         <styled.input
+          data-testid="availableInput"
           maxLength={1}
           name="x4x0"
           onChange={[Function]}
@@ -166,6 +200,7 @@ exports[`<Grid /> rendering renders correctly 1`] = `
         key="5"
       >
         <styled.input
+          data-testid="availableInput"
           maxLength={1}
           name="x4x1"
           onChange={[Function]}
@@ -174,17 +209,22 @@ exports[`<Grid /> rendering renders correctly 1`] = `
         />
       </styled.span>
       <styled.input
+        data-testid="disabledInput"
         disabled={true}
         key="6"
+        type="text"
       />
       <styled.input
+        data-testid="disabledInput"
         disabled={true}
         key="7"
+        type="text"
       />
       <styled.span
         key="8"
       >
         <styled.input
+          data-testid="availableInput"
           maxLength={1}
           name="x4x4"
           onChange={[Function]}
