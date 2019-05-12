@@ -22,6 +22,10 @@ const Grid = ({ gridSource }: IGridSource) => {
   // otherwise show error msg
   const gridLineLength = gridSource[0].length;
   const [answer, setAnswer] = useState<Dict>({});
+  /**
+   * @param correctAnswerDict is used to map each answer correct or not into a dictionary
+   * its size is also used to detect if validation button is clicked, then decide to show Overlays or not
+   */
   const [correctAnswerDict, setCorrectAnswerDict] = useState<ComparedDict>({});
 
   const renderBlocks = (rowString: string, rowIndex: number) => {
